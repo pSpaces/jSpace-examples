@@ -76,19 +76,6 @@ class Charlie implements Runnable {
 	@Override
 	public void run() {
 		try{
-			//var item string
-			//var quantity int
-			//_, err := fridge.GetP("shop!")
-			//if err == nil {
-			//	for {
-			//		t, _ := fridge.Get(&item, &quantity)
-			//		item = (t.GetFieldAt(0)).(string)
-			//		quantity = (t.GetFieldAt(1)).(int)
-			//		fmt.Printf("Charlie: I am shopping %d items of %s...\n", quantity, item)
-			//	}
-			//} else {
-			//	fmt.Printf("Charlie: I am just relaxing...\n")
-			//}
 			Object[] t = fridge.queryp(new ActualField("shop!"));
 			if (t != null) {
 				while (true) {
