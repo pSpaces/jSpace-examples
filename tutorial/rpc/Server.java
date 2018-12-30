@@ -32,7 +32,7 @@ public class Server {
 			System.out.println("Opening repository gate at " + uri + "...");
 
 
-			Object[] response;
+			Object[] request;
 			Object[] arguments;
 			String callID;
 			String f;
@@ -40,9 +40,9 @@ public class Server {
 			// Keep serving requests to enter chatrooms
 			while (true) {
 
-				response = rpc.get(new FormalField(String.class), new ActualField("func"), new FormalField(String.class));
-				callID = (String) response[0];
-				f = (String) response[2];
+				request = rpc.get(new FormalField(String.class), new ActualField("func"), new FormalField(String.class));
+				callID = (String) request[0];
+				f = (String) request[2];
 				System.out.print("Serving request " + callID + " to run " + f + "(");
 				switch (f) {
 				case "foo":
