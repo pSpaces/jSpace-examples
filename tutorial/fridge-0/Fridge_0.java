@@ -5,7 +5,7 @@ import org.jspace.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class fridge_0 {
+public class Fridge_0 {
 
     public static void main(String[] argv) throws InterruptedException {
         // Creating a tuple.
