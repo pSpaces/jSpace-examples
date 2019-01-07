@@ -9,20 +9,27 @@ import java.net.UnknownHostException;
 
 public class Client {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
 		try {
+			
+			BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
 			// Set the URI of the chat space
-			String uri = "tcp://127.0.0.1:9001/chat?keep";
-			
+			// Default value
+			System.out.print("Enter URI of the chat server or press enter for default: ");
+			String uri = input.readLine();
+			// Default value
+			if (uri.isEmpty()) { 
+				uri = "tcp://127.0.0.1:9001/chat?keep";
+			}
+
 			// Connect to the remote chat space 
 			System.out.println("Connecting to chat space " + uri + "...");
-	    	RemoteSpace chat = new RemoteSpace(uri);
-			
+			RemoteSpace chat = new RemoteSpace(uri);
+
 			// Read user name from the console			
 			System.out.print("Enter your name: ");
-			BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 			String name = input.readLine();
 
 			// Keep sending whatever the user types
@@ -31,8 +38,8 @@ public class Client {
 				String message = input.readLine();
 				chat.put(name, message);
 			}			
-			
-			
+
+
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,5 +47,5 @@ public class Client {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
+	}
 }
