@@ -44,7 +44,7 @@ public class Server {
 					System.out.println(who + " requesting to enter " + roomID + "...");					
 
 					// If room exists just prepare the response with the corresponding URI
-					Object[] the_room = rooms.queryp(new ActualField(roomID),new FormalField(String.class));
+					Object[] the_room = rooms.queryp(new ActualField(roomID),new FormalField(Integer.class));
 					if (the_room != null) {
 						roomURI = "tcp://127.0.0.1:9001/chat" + the_room[1] + "?keep";
 					} 
